@@ -1,25 +1,9 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import axios from 'axios';
+import restApiClient from './api/client';
 
 function App() {
-  const instance = axios.create({
-    baseURL: 'http://localhost:9080/api/',
-    timeout: 5000
-  });
-
-  instance.get('/archive/pay-slips/annual-salary?from=60000&to=100000&limit=20&offset=0')
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    })
-    .finally(function () {
-      // always executed
-    });
-
   return (
     <div className="App">
       <header className="App-header">
