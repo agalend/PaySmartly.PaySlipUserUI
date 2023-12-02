@@ -1,1 +1,1 @@
-# PaySmartly.PaySlipUserUI
+# PaySmartly.UI
