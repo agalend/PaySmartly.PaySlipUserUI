@@ -1,5 +1,5 @@
 import React from "react";
- 
+
 const Calculator = () => {
     return (
         <div
@@ -10,11 +10,14 @@ const Calculator = () => {
                 height: "100vh",
             }}
         >
-            <h1>
-                Welcome to Calculator
-            </h1>
+            <div>
+                div 11
+            </div>
+            <div>
+                div 2
+            </div>
         </div>
     );
 };
- 
+
 export default Calculator;
