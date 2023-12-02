@@ -1,6 +1,6 @@
 import Identity from "./identity"
 
-export interface Request {
+export default interface Request {
     employee: Identity;
     annualSalary: number;
     superRate: number;
