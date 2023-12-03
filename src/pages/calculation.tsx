@@ -94,12 +94,12 @@ const Calculation = () => {
                                 <Form.Label />
                                 <Form.Group as={Col} md="4" controlId="validationCustom04">
                                     <Form.Label>Super Rate</Form.Label>
-                                    <Form.Control required type="number" min="1" max="99" placeholder="5" style={{ width: "100%" }} onChange={(e) => {
+                                    <Form.Control required type="number" min="0" max="99" placeholder="5" style={{ width: "100%" }} onChange={(e) => {
                                         request.superRate = e.target.value as any;
                                         setRequest(request);
                                     }} />
                                     <Form.Control.Feedback type="invalid">
-                                        Please set a number between 1 and 99.
+                                        Please set a number between 0 and 99.
                                     </Form.Control.Feedback>
                                 </Form.Group>
 
