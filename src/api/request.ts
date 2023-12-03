@@ -41,12 +41,12 @@ export class PaySlipRequest implements Request {
     }
 
     public get payPeriodFrom(): Date {
-        return new Date(this.year, this.month, 1);
+        return new Date(this.year, this.month - 1, 1);
     }
 
     public get payPeriodTo(): Date {
         const monthDays = this.daysInMonth(this.year, this.month);
-        return new Date(this.year, this.month, monthDays);
+        return new Date(this.year, this.month - 1, monthDays);
     }
 
     public get roundTo(): number { return 2; }
