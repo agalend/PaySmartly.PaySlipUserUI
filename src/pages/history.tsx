@@ -129,7 +129,7 @@ const History = () => {
                 <Form.Label />
                 <Form.Group as={Col} md="4" controlId="validationCustom03">
                     <Form.Label>{searchLabel1}</Form.Label>
-                    <Form.Control required type={searchInputType} placeholder={searchSuggestion1} style={{ width: "50%" }} onChange={(e) => {
+                    <Form.Control required type={searchInputType} min={0} max={searchCriteria === "Super Rate" ? 99 : 10000000} placeholder={searchSuggestion1} style={{ width: "50%" }} onChange={(e) => {
                         request.searchItem1 = e.target.value;
                         setRequest(request);
                     }} />
@@ -141,7 +141,7 @@ const History = () => {
                 <Form.Label />
                 <Form.Group as={Col} md="4" controlId="validationCustom04">
                     <Form.Label>{searchLabel2}</Form.Label>
-                    <Form.Control required type={searchInputType} placeholder={searchSuggestion2} style={{ width: "50%" }} onChange={(e) => {
+                    <Form.Control required type={searchInputType} min={0} max={searchCriteria === "Super Rate" ? 99 : 10000000} placeholder={searchSuggestion2} style={{ width: "50%" }} onChange={(e) => {
                         request.searchItem2 = e.target.value;
                         setRequest(request);
                     }} />
