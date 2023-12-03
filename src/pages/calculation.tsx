@@ -33,35 +33,40 @@ const Calculation = () => {
     }, [isLoading]);
 
     return (
-        <Table>
+        <Table borderless={true}>
             <tbody>
                 <tr>
                     <th>
-                        <Stack gap={10}>
+                        <Stack>
                             <Form.Label>First Name</Form.Label>
                             <Form.Control type="text" placeholder="John" style={{ width: "30%" }} onChange={(e) => {
                                 request.employeeFirstName = e.target.value;
                                 setRequest(request);
                             }} />
-                            <br />
+
+                            <Form.Label />
                             <Form.Label>Last Name</Form.Label>
                             <Form.Control type="text" placeholder="Peterson" style={{ width: "30%" }} onChange={(e) => {
                                 request.employeeLastName = e.target.value;
                                 setRequest(request);
                             }} />
-                            <br />
+
+                            <Form.Label />
                             <Form.Label>Annual Salary</Form.Label>
                             <Form.Control type="number" placeholder="100000" style={{ width: "30%" }} onChange={(e) => {
                                 request.annualSalary = e.target.value as any;
                                 setRequest(request);
                             }} />
-                            <br />
+
+                            <Form.Label />
                             <Form.Label>Super Rate</Form.Label>
                             <Form.Control type="number" placeholder="5" style={{ width: "30%" }} onChange={(e) => {
                                 request.superRate = e.target.value as any;
                                 setRequest(request);
                             }} />
-                            <br />
+
+                            <Form.Label /><Form.Label />
+                            <Form.Label>Month</Form.Label>
                             <DropdownButton id="months-dropdown" title={monthsConverter.convert(month!)} variant="outline-secondary" onSelect={setMonth}>
                                 <Dropdown.Item eventKey="0">January</Dropdown.Item>
                                 <Dropdown.Item eventKey="1">February</Dropdown.Item>
@@ -76,43 +81,50 @@ const Calculation = () => {
                                 <Dropdown.Item eventKey="10">November</Dropdown.Item>
                                 <Dropdown.Item eventKey="11">December</Dropdown.Item>
                             </DropdownButton>
+
+                            <Form.Label /><Form.Label /><Form.Label /><Form.Label /><Form.Label /><Form.Label /><Form.Label />
+                            <Form.Label /><Form.Label /><Form.Label /><Form.Label /><Form.Label /><Form.Label />
+                            <Button
+                                variant="outline-secondary"
+                                style={{ width: "30%" }}
+                                disabled={isLoading}
+                                onClick={!isLoading ? () => setLoading(true) : undefined}>
+                                {isLoading ? 'Calculating…' : 'Calculate'}
+                            </Button>{' '}
                         </Stack>
                     </th>
                     <th>
                         <Stack>
                             <Form.Label>Name</Form.Label>
                             <Form.Control type="text" value={`${response?.employee?.firstName ?? ""} ${response?.employee?.lastName ?? ""}`} style={{ width: "30%" }} readOnly disabled />
-                            <br />
+
+                            <Form.Label />
                             <Form.Label>Gross Income</Form.Label>
                             <Form.Control type="number" value={response?.grossIncome ?? ""} style={{ width: "30%" }} readOnly disabled />
-                            <br />
+
+                            <Form.Label />
                             <Form.Label>Income Tax</Form.Label>
                             <Form.Control type="number" value={response?.incomeTax ?? ""} style={{ width: "30%" }} readOnly disabled />
-                            <br />
+
+                            <Form.Label />
                             <Form.Label>Net Income</Form.Label>
                             <Form.Control type="number" value={response?.netIncome ?? ""} style={{ width: "30%" }} readOnly disabled />
-                            <br />
+
+                            <Form.Label />
                             <Form.Label>Super</Form.Label>
                             <Form.Control type="number" value={response?.super ?? ""} style={{ width: "30%" }} readOnly disabled />
-                            <br />
+
+                            <Form.Label />
                             <Form.Label>Pay Period From</Form.Label>
                             <Form.Control type="string" value={response?.payPeriodFrom?.toLocaleDateString() ?? ""} style={{ width: "30%" }} readOnly disabled />
-                            <br />
+
+                            <Form.Label />
                             <Form.Label>Pay Period To</Form.Label>
                             <Form.Control type="string" value={response?.payPeriodTo?.toLocaleDateString() ?? ""} style={{ width: "30%" }} readOnly disabled />
-                            <br />
+
+                            <Form.Label />
                         </Stack>
                     </th>
-                </tr>
-                <tr>
-                    <br />
-                    <Button
-                        variant="outline-secondary"
-                        style={{ width: "20%" }}
-                        disabled={isLoading}
-                        onClick={!isLoading ? () => setLoading(true) : undefined}>
-                        {isLoading ? 'Calculating…' : 'Calculate'}
-                    </Button>{' '}
                 </tr>
             </tbody>
         </Table>
