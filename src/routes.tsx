@@ -1,10 +1,10 @@
-import Calculator from './pages/calculator';
-import Home from './pages/calculator';
+import Calculation from './pages/calculation';
+import Home from './pages/calculation';
 import History from './pages/history';
 
 const routes = [
-  { path: '*', component: <Calculator />, exact: true },
-  { path: '/calculator', component: <Calculator /> },
+  { path: '*', component: <Calculation />, exact: true },
+  { path: '/calculator', component: <Calculation /> },
   { path: '/history', component: <History /> },
 ];
 

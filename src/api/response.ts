@@ -1,6 +1,6 @@
-import Identity from "./identity";
+import { Identity } from "./identity";
 
-export default interface Response {
+export interface Response {
     id: string;
     employee: Identity;
     annualSalary: number;

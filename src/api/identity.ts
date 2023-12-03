@@ -1,4 +1,4 @@
-export default interface Identity {
+export interface Identity {
     firstName: string;
     lastName: string;
 }

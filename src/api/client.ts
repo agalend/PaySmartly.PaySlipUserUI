@@ -1,5 +1,5 @@
-import Request from "./request";
-import Response from "./response";
+import { Request } from "./request";
+import { Response } from "./response";
 import axios, { AxiosInstance } from 'axios';
 
 export interface ApiClient {
@@ -24,7 +24,8 @@ export class RestApiClient implements ApiClient {
 
     public async create(request: Request): Promise<Response> {
         const url = "calculations/pay-slips";
-        const response = await this.axiosInstance.post<Response>(url, request);
+        const data = this.convertToData(request);
+        const response = await this.axiosInstance.post<Response>(url, data);
         return response.data;
     }
 
@@ -62,6 +63,20 @@ export class RestApiClient implements ApiClient {
         });
         return response.data;
     }
+
+    private convertToData(request: Request): any {
+        const data: Request = {
+            employee: { firstName: request.employee.firstName, lastName: request.employee.lastName },
+            annualSalary: request.annualSalary,
+            superRate: request.superRate,
+            payPeriodFrom: request.payPeriodFrom,
+            payPeriodTo: request.payPeriodTo,
+            roundTo: request.roundTo,
+            months: request.months,
+            requester: { firstName: request.requester.firstName, lastName: request.requester.lastName },
+        };
+        return data;
+    }
 }
 
-export default new RestApiClient("http://localhost:9080/api/", 5000);
+export default new RestApiClient("http://localhost:9080/api/", 5000); // base url and timeout should become env vars
