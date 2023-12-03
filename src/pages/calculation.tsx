@@ -52,7 +52,6 @@ const Calculation = () => {
 
     return (
         <Table borderless={true}>
-            <tbody>
                 <Row>
                     <Col>
                         <Stack>
@@ -88,7 +87,7 @@ const Calculation = () => {
                                         setRequest(request);
                                     }} />
                                     <Form.Control.Feedback type="invalid">
-                                        Please set number between 1 and 10000000.
+                                        Please set a number between 1 and 10000000.
                                     </Form.Control.Feedback>
                                 </Form.Group>
 
@@ -100,7 +99,7 @@ const Calculation = () => {
                                         setRequest(request);
                                     }} />
                                     <Form.Control.Feedback type="invalid">
-                                        Please set number between 1 and 99.
+                                        Please set a number between 1 and 99.
                                     </Form.Control.Feedback>
                                 </Form.Group>
 
@@ -132,7 +131,7 @@ const Calculation = () => {
                                         style={{ width: "100%" }}
                                         disabled={isLoading}>
                                         {isLoading ? 'Calculating…' : 'Calculate'}
-                                    </Button >{' '}
+                                    </Button >
                                 </Form.Group>
                             </Form>
                         </Stack>
@@ -170,7 +169,6 @@ const Calculation = () => {
                         </Stack>
                     </Col>
                 </Row>
-            </tbody>
         </Table>
     );
 };
